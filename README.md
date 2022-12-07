@@ -1,1 +1,1 @@
-A set of code for the study of Alaska's Permanent Fund Dividend
+Base files for simulation-based policy tool for JFI
