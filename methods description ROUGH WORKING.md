@@ -72,6 +72,6 @@ I calculate these using the the *survey* and *convey* packages in R, which are d
 Using the ACS replicate weights allows me to generate design-based standard errors for each of the test statistics in each of the annual draws, which I then use in one-sided t-tests of significance relative to the baseline estimates (with their own replicate-weight errors) from the ACS. I adjust the resulting p-values to account for the large number of tests by using Narum's \textcite{narum_beyond_2006}
  version of Benjamini and Yekutiel's (\cite{benjamini_control_2001}) false discovery rate, which accommodates dependence between hypotheses and is less punitive than Bonferroni's classic measure. The measure is constructed as follows, with $k$ being the number of hypotheses: 
  
-$$\[ \ \alpha_{FDR}=\frac{\alpha}{\sum_{i=1}^{k}\frac{1}{i}} \]$$ 
+$$\ \alpha_{FDR}=\frac{\alpha}{\sum_{i=1}^{k}\frac{1}{i}}$$ 
 
 
