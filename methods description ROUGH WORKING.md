@@ -24,7 +24,7 @@ Given the limitations of my data, I assume that the new POMV policy went into ef
 
 ## Step 2: Determining Policy Splits
 
-The next step is to divide $POMV_{t}$ into its component pieces, the POMV-based dividend "d" and the remainder that goes to the state budget "b". 
+The next step is to divide $POMV_{t}$ into its component pieces, the POMV-based dividend $d$ and the remainder that goes to the state budget $b$. 
 
 $$ POMV_{t} = d_{POMV, t} + b_{POMV, t} $$
 
