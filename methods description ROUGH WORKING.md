@@ -24,7 +24,7 @@ $$ POMV_{t} = \Big[\frac{1}{5}\sum_{n=1}^{5} (MV_{t-n} - AH_{t-n})\Big] * 0.0525
 
 Given the limitations of my data, I assume that the new POMV policy went into effect in 2006, so that for 2000 - 2005, the amount available for historical POMV calculation is simply the market value of the Fund at year end or $MV_{t}$, less the Amerada Hess settlement amount (or $AH_{t}$) to get $POMV_{t}$. I follow the statute's description of the new policy by taking the five-year average of the current and prior four years' annual $POMV_{t}$, of which 5.25\% becomes the POMV Pool for year $t$.
 
-## Policy Splits: Three Divdend Variations
+## Policy Splits: Three Dividend Variations
 
 The final step is to divide $POMV_{t}$ into its component pieces, the POMV-based divided and the remainder that goes to the state budget. 
 
