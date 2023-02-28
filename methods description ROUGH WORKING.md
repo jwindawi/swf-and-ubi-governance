@@ -1,12 +1,17 @@
 # Data and Methods
 
  The primary challenge in studying Alaska's Dividend is that neither state nor federal public use data identify those who receive the Dividend. Neither the Current Population Survey nor the American Community Survey (ACS) have an income category that consistently reflects Alaska's Dividend, while the website of Alaska's Dividend Division reports only aggregate numbers of applicants and recipients in a given year.  Nor is it viable to simply assume that all Alaskans receive the Dividend given that there are strict criteria regarding eligibility and the need to apply. As the third column of \autoref{tab:divs} shows, the proportion of Alaskans receiving the Dividend (which I call "coverage") has ranged in the mid-high 80s. 
+ 
+The process I follow begins by constructing some number of counterfactual population incomes for the state of Alaska in which the Dividend does not exist, holding the population and its demographic characteristics constant, and then measures the differences between these counterfactual Alaskas and the baseline version established by the ACS IPUMS data for each year. 
+
+## Simulation Data 
 
 The inability to consistently identify APFD income in the public data, coupled with the fact that receipt of the Dividend is not universal, creates measurement problems akin to those faced by studies of the Earned Income Tax Credit, which typically rely on data from the CPS (CITE HOYNES, NICHOLS). The CPS' approach to measuring the EITC is part of its larger effort to reliably estimate after-tax income in the absence of confidential IRS data. The methods used by the CPS in were significantly revised in 2004 to encompass a two-stage process that begins with an estimation of the likelihood of a taxpaying unit claiming certain deductions based on eligibility and matched IRS data, followed by an simulation-based imputation of deductions based on the likelihood established in the first-stage estimation. The final step is the deduction of the resulting taxes to arrive at an after-tax income, from which EITC eligibility and assignment are determined (O'Hara 2004, 2006). 
 
 The methods and data I use are similar in spirit to the CPS process, though they differ in significant ways. First, the data for the study come from the annual public-use microdata (PUMS) files of the American Community Survey (ACS), which the U.S. Census [recommends](https://www.census.gov/topics/income-poverty/guidance/data-sources.html) for the analysis of sub-national data. I focus on the years 2006 through 2020 since the PUMS for these years includes ACS-calculated replicate weights that reflect the full survey design.\footnote{The ACS began providing these weights with the 2005 PUMS, but did not sample incarcerated individuals in Alaska until 2006. 2016 is the most recent annual PUMS sample at the time of this writing.} Second, rather than using simulation to establish a point estimate, I use it to generate a range of plausible outcomes across a series of test statistics from which to draw preliminary conclusions.
 
-The process I follow begins by constructing some number of counterfactual population incomes for the state of Alaska in which the Dividend does not exist, holding the population and its demographic characteristics constant, and then measures the differences between these counterfactual Alaskas and the baseline version established by the ACS IPUMS data for each year. I describe the process further below. 
+## Fiscal Data
+
 
 ## Simulating Counterfactuals: Baseline Method
 
