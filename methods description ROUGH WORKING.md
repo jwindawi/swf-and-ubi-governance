@@ -6,7 +6,7 @@ The process I follow begins by constructing some number of counterfactual popula
 
 The following graphic provides an overview of the three stages. 
 
-<img src=https://github.com/jwindawi/swf-and-ubi-governance/blob/master/process.png width="100" />
+<img src=https://github.com/jwindawi/swf-and-ubi-governance/blob/master/process.png width="700" />
 
 ## Simulation Data 
 
