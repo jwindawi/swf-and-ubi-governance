@@ -67,3 +67,5 @@ Using the ACS replicate weights allows me to generate design-based standard erro
 $$\ \alpha_{FDR}=\frac{\alpha}{\sum_{i=1}^{k}\frac{1}{i}}$$ 
 
 ## Step 3b: Fiscal Outcomes
+
+The counterpart to the simulated socioeconomic outcomes is the impact of the funds remaining from each year's POMV appropriation on the general budget. Because these are fairly straightforward accounting measures, there is significantly less complexity to this step. In each year, I apply the remaining POMV funds left after the Dividend split directly to the General Fund for that year in order to determine its effect on the state's fiscal situation over the course of its recent budgetary challenges. 
