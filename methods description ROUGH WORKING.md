@@ -13,7 +13,7 @@ The methods and data I use are similar in spirit to the CPS process, though they
 ## Fiscal Data
 
 
-## Simulating Counterfactuals: Baseline Method
+## Simulating Counterfactuals: Core Method
 
 I begin with the distribution of household incomes (scaled for household size using the square-root equivalence scale) as measured by the ACS in year $t$ as $Y_{t}$, and then randomly assign individual households with Dividend-eligible members to the condition of having some amount of income removed from their household income $y_{it}$, up to the limit set by the number of eligible individuals in the household $n_{it}$ and the dollar amount of that year's dividend $d_{t}$. I then impute the resulting income, after adjusting for household size using an equivalence scale, to each individual in the household. This process yields a simulated version of Alaska with a Dividend-free income distribution of $Y^{'}_{t}$, and allows me to generate a series of statistics that test for meaningful differences between Alaska with and "without" the Dividend. 
 
