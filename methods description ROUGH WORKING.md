@@ -8,13 +8,11 @@ The following graphic provides an overview of the three stages.
 
 <img src=https://github.com/jwindawi/swf-and-ubi-governance/blob/master/process.png width="700" />
 
-## Modeling POMV
+## Step 1: Modeling POMV
 
 The historical results represent a period in which the Dividend was (until 2016) set based on a mechanical, statutory rule. The Dividend's shift to a POMV-based policy firmly enmeshes the Dividend into the state's fiscal policy, a pattern I will call "fiscalization". The new policy involves a shift to endowment-style calculations based on a percentage of the market value of the total Permanent Fund, or ``POMV". Once established, the POMV is then appropriated and becomes part of the state's budget, giving the state the authority to apportion the funds between dividends and disbursements to the state's General Fund. 
 
-To capture this, I use a simple accounting method that applies the new policy to historical data in order to generate new annual market values for the Permanent Fund, or $MV_{t}$ for each year $t$ that take into account the reductions that result from larger POMV appropriations, and generate annual POMV-based pools based on these values. I then use these values in two ways. First, I generate annual Dividends based on simple assumptions, and apply the simulation methods used in the baseline simulations above in order to gauge the reduced Dividends' effects on inequality and poverty. Second, I apply the resulting surpluses to the state's historical budget by crediting them to the rainy-day funds (and thus to the General Fund) in order to situate the Dividend changes in the larger fiscal context. I describe the methods and assumptions I use to generate these figures in the following subsections, and discuss the findings in X.... 
-
-For tractability, I assume that most external variables (primarily annual appropriations from the Permanent Fund) as well as its investment returns remain unchanged from their historical values. My calculation of the annual POMV begins with the prior year's ending market valuation of the Permanent Fund, or $MV_{t-1}$, which I adjust by the current year's Permanent Fund investment return $r_{t}$ before subtracting annual appropriations formerly bundled with the Dividend ($APPR_{t}$) as well as that year's POMV pool using the following: 
+To capture this, I use a simple accounting method that applies the new policy to historical data in order to generate new annual market values for the Permanent Fund, or $MV_{t}$ for each year $t$ that take into account the reductions that result from larger POMV appropriations, and generate annual POMV-based pools based on these values. For tractability, I assume that most external variables (primarily annual appropriations from the Permanent Fund) as well as its investment returns remain unchanged from their historical values. My calculation of the annual POMV begins with the prior year's ending market valuation of the Permanent Fund, or $MV_{t-1}$, which I adjust by the current year's Permanent Fund investment return $r_{t}$ before subtracting annual appropriations formerly bundled with the Dividend ($APPR_{t}$) as well as that year's POMV pool using the following: 
 
 $$MV_{t} = r_{t}(MV_{t-1}) - APPR_{t} - POMV_{t}$$
 
@@ -24,9 +22,11 @@ $$ POMV_{t} = \Big[\frac{1}{5}\sum_{n=1}^{5} (MV_{t-n} - AH_{t-n})\Big] * 0.0525
 
 Given the limitations of my data, I assume that the new POMV policy went into effect in 2006, so that for 2000 - 2005, the amount available for historical POMV calculation is simply the market value of the Fund at year end or $MV_{t}$, less the Amerada Hess settlement amount (or $AH_{t}$) to get $POMV_{t}$. I follow the statute's description of the new policy by taking the five-year average of the current and prior four years' annual $POMV_{t}$, of which 5.25\% becomes the POMV Pool for year $t$.
 
-## Policy Splits: Three Dividend Variations
 
-The final step is to divide $POMV_{t}$ into its component pieces, the POMV-based dividend "d" and the remainder that goes to the state budget "b". 
+
+## Step 2: Determining Policy Splits
+
+The next step is to divide $POMV_{t}$ into its component pieces, the POMV-based dividend "d" and the remainder that goes to the state budget "b". 
 
 $$ POMV_{t} = d_{POMV, t} + b_{POMV, t} $$
 
@@ -67,7 +67,7 @@ I use the Department of Health and Human Services poverty guideline for Alaska r
 
 I calculate these using the the *survey* and *convey* packages in R, which are designed for the complexity of survey-based sample data. This is especially important for the American Community Survey, which (like any sample-based survey) introduces uncertainty in the sampling process that is not captured by traditional, estimation-based variance.  Beginning in 2005, the ACS began providing replicate weights for both households and individuals in its annual PUMS data. The ACS calculates these based on the full ACS sample from which the PUMS are drawn, which means that the replicate weights reflect both the uncertainty inherent in the underlying sampling in terms of clustering/stratification as well as the additional sampling uncertainty introduced by selecting the PUMS subsamples. ACS PUMS data includes 80 replicate weights for each household, as well as 80 replicate weights for each individual, in each calendar year. The *survey* package offers an option of making the baseline point estimate the center of the distribution of 81 estimates (the original + the 80 replicate versions). The standard errors are based on calculations using Fay's method and a balanced repeated replication (BRR) design.
 
- Doing this randomization and repeated measurement 1,000 times raises a final complication, which is how best to summarize the results of the 1,000 draws. Ideally, I would assemble the 1,000 draws for each of the 578 statistic-years into its own distribution, establish a representative statistic such as the mean or mode, and use that to test for independence from the baseline ACS. Unfortunately, quantiles and cutoff-based statistics such as poverty rates don't behave in a way that makes that possible. This isn't universally true, but I've examined enough to be certain that this is a sufficiently large problem to necessitate an alternative approach.
+ Doing this randomization and repeated measurement 1,000 times raises a final complication, which is how best to summarize the results of the 1,000 draws. Ideally, I would assemble the 1,000 draws for each of the statistic-years into its own distribution, establish a representative statistic such as the mean or mode, and use that to test for independence from the baseline ACS. Unfortunately, quantiles and cutoff-based statistics such as poverty rates don't behave in a way that makes that possible. This isn't universally true, but I've examined enough to be certain that this is a sufficiently large problem to necessitate an alternative approach.
 
 Using the ACS replicate weights allows me to generate design-based standard errors for each of the test statistics in each of the annual draws, which I then use in one-sided t-tests of significance relative to the baseline estimates (with their own replicate-weight errors) from the ACS. I adjust the resulting p-values to account for the large number of tests by using Narum's \textcite{narum_beyond_2006}
  version of Benjamini and Yekutiel's (\cite{benjamini_control_2001}) false discovery rate, which accommodates dependence between hypotheses and is less punitive than Bonferroni's classic measure. The measure is constructed as follows, with $k$ being the number of hypotheses: 
