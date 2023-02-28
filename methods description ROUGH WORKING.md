@@ -22,8 +22,6 @@ $$ POMV_{t} = \Big[\frac{1}{5}\sum_{n=1}^{5} (MV_{t-n} - AH_{t-n})\Big] * 0.0525
 
 Given the limitations of my data, I assume that the new POMV policy went into effect in 2006, so that for 2000 - 2005, the amount available for historical POMV calculation is simply the market value of the Fund at year end or $MV_{t}$, less the Amerada Hess settlement amount (or $AH_{t}$) to get $POMV_{t}$. I follow the statute's description of the new policy by taking the five-year average of the current and prior four years' annual $POMV_{t}$, of which 5.25\% becomes the POMV Pool for year $t$.
 
-
-
 ## Step 2: Determining Policy Splits
 
 The next step is to divide $POMV_{t}$ into its component pieces, the POMV-based dividend "d" and the remainder that goes to the state budget "b". 
@@ -34,16 +32,11 @@ There is no set figure for the share between these two components, which leads m
 
 The second approach combines POMV allocations with the older Dividend payout formula based on investment earnings, but in the context of steady reductions in the overall APF balance (and thus the invested principal) from the POMV reductions. This produces a Dividend with much of the variation of the historical Dividend, though with amounts that tend to fall somewhere between the historical figure and the simulated Dividend described above. I call this the ``flow" version of the POMV-based Dividend given its basis in investment flows. As with the other method, I treat any remaining funds from the POMV appropriation after paying the Dividend as going into the CBR and thus available for rain-day spending. 
 
-## Simulation Data 
+## Step 3a: Socioeconomic Outcomes
 
 The inability to consistently identify APFD income in the public data, coupled with the fact that receipt of the Dividend is not universal, creates measurement problems akin to those faced by studies of the Earned Income Tax Credit, which typically rely on data from the CPS (CITE HOYNES, NICHOLS). The CPS' approach to measuring the EITC is part of its larger effort to reliably estimate after-tax income in the absence of confidential IRS data. The methods used by the CPS in were significantly revised in 2004 to encompass a two-stage process that begins with an estimation of the likelihood of a taxpaying unit claiming certain deductions based on eligibility and matched IRS data, followed by an simulation-based imputation of deductions based on the likelihood established in the first-stage estimation. The final step is the deduction of the resulting taxes to arrive at an after-tax income, from which EITC eligibility and assignment are determined (O'Hara 2004, 2006). 
 
 The methods and data I use are similar in spirit to the CPS process, though they differ in significant ways. First, the data for the study come from the annual public-use microdata (PUMS) files of the American Community Survey (ACS), which the U.S. Census [recommends](https://www.census.gov/topics/income-poverty/guidance/data-sources.html) for the analysis of sub-national data. I focus on the years 2006 through 2020 since the PUMS for these years includes ACS-calculated replicate weights that reflect the full survey design. Second, rather than using simulation to establish a point estimate, I use it to generate a range of plausible outcomes across a series of test statistics from which to draw preliminary conclusions.
-
-## Fiscal Data
-
-
-## Simulating Counterfactuals: Core Method
 
 The core of the simulation method is to generate 1,000 random draws for each household, in each year, with the randomness determining which households are treated as having the dollar amount of that year's Dividend removed. These 1,000 annual draws then form the basis of simple test statistics comparing inequality and poverty in the baseline ACS data (with the Dividend) against counterfactual states in which the Dividend is removed. 
 
@@ -74,4 +67,4 @@ Using the ACS replicate weights allows me to generate design-based standard erro
  
 $$\ \alpha_{FDR}=\frac{\alpha}{\sum_{i=1}^{k}\frac{1}{i}}$$ 
 
-
+## Step 3b: Fiscal Outcomes
