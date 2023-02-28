@@ -1,4 +1,4 @@
-*Data and Methods
+# Data and Methods
 
  The primary challenge in studying Alaska's Dividend is that neither state nor federal public use data identify those who receive the Dividend. Neither the Current Population Survey nor the American Community Survey (ACS) have an income category that consistently reflects Alaska's Dividend, while the website of Alaska's Dividend Division reports only aggregate numbers of applicants and recipients in a given year.  Nor is it viable to simply assume that all Alaskans receive the Dividend given that there are strict criteria regarding eligibility and the need to apply. As the third column of \autoref{tab:divs} shows, the proportion of Alaskans receiving the Dividend (which I call "coverage") has ranged in the mid-high 80s. 
 
@@ -8,7 +8,7 @@ The methods and data I use are similar in spirit to the CPS process, though they
 
 The process I follow begins by constructing some number of counterfactual population incomes for the state of Alaska in which the Dividend does not exist, holding the population and its demographic characteristics constant, and then measures the differences between these counterfactual Alaskas and the baseline version established by the ACS IPUMS data for each year. I describe the process further below. 
 
-**Simulating Counterfactuals: Baseline Method**
+## Simulating Counterfactuals: Baseline Method
 
 I begin with the distribution of household incomes (scaled for household size using the square-root equivalence scale) as measured by the ACS in year $t$ as $Y_{t}$, and then randomly assign individual households with Dividend-eligible members to the condition of having some amount of income removed from their household income $y_{it}$, up to the limit set by the number of eligible individuals in the household $n_{it}$ and the dollar amount of that year's dividend $d_{t}$. I then impute the resulting income, after adjusting for household size using an equivalence scale, to each individual in the household. This process yields a simulated version of Alaska with a Dividend-free income distribution of $Y^{'}_{t}$, and allows me to generate a series of statistics that test for meaningful differences between Alaska with and ``without" the Dividend. 
 
@@ -45,17 +45,18 @@ Using the ACS replicate weights allows me to generate design-based standard erro
  
  $$\[ \ \alpha_{FDR}=\frac{\alpha}{\sum_{i=1}^{k}\frac{1}{i}} \]}$$
  
-**Fiscalization and the Dividend**
+## Fiscalization and the Dividend
 
 The historical results represent a period in which the Dividend was (until 2016) set based on a mechanical, statutory rule. The Dividend's shift to a POMV-based policy firmly enmeshes the Dividend into the state's fiscal policy, a pattern I will call ``fiscalization" after McCabe (CITE). As I describe in section X, the new policy involves a shift to endowment-style calculations based on the market value of the total Permanent Fund, or ``POMV" for percent of market value, to be deducted from the earnings account. These POMV appropriations then become part of the state's budget, giving the state the authority to apportion them between dividends and disbursements to the state's General Fund. 
 
 To capture this, I use a simple accounting method that applies the new policy to historical data in order to generate new annual market values for the Permanent Fund, or $MV_{t}$ for each year $t$ that take into account the reductions that result from larger POMV appropriations, and generate annual POMV-based pools based on these values. I then use these values in two ways. First, I generate annual Dividends based on simple assumptions, and apply the simulation methods used in the baseline simulations above in order to gauge the reduced Dividends' effects on inequality and poverty. Second, I apply the resulting surpluses to the state's historical budget by crediting them to the rainy-day funds (and thus to the General Fund) in order to situate the Dividend changes in the larger fiscal context. I describe the methods and assumptions I use to generate these figures in the following subsections, and discuss the findings in X.... 
 
 For tractability, I assume that most external variables (primarily annual appropriations from the Permanent Fund) as well as its investment returns remain unchanged from their historical values. My calculation of the annual POMV begins with the prior year's ending market valuation of the Permanent Fund, or $MV_{t-1}$, which I adjust by the current year's Permanent Fund investment return $r_{t}$ before subtracting annual appropriations formerly bundled with the Dividend as well as that year's POMV pool using the following: 
-\begin{equation} 
-MV_{t} = r_{t}(MV_{t-1}) - APPR_{t} - POMV_{t}
-\end{equation}
-I use the statutory formula to calculate each year's POMV pool $POMV_{t}$ as 5.25\% of the average of the prior five years' Permanent Fund market values, less an adjustment for an earlier settlement ($AH_{t}$) that is excluded by statute from the POMV calculation.\footnote{The $AH$ funds come from a settlement awarded in an earlier dispute with Amerada Hess, and amount to over \$400 million in most years.} 
+
+$$MV_{t} = r_{t}(MV_{t-1}) - APPR_{t} - POMV_{t}$$
+
+I use the statutory formula to calculate each year's POMV pool $POMV_{t}$ as 5.25\% of the average of the prior five years' Permanent Fund market values, less an adjustment for an earlier settlement ($AH_{t}$) that is excluded by statute from the POMV calculation. The $AH$ funds come from a settlement awarded in an earlier dispute with Amerada Hess, and amount to over \$400 million in most years.} 
+
 $$ POMV_{t} = \Big[\frac{1}{5}\sum_{n=1}^{5} (MV_{t-n} - AH_{t-n})\Big] * 0.0525 $$
 
 Given the limitations of my data, I assume that the new POMV policy went into effect in 2006, so that for 2000 - 2005, the amount available for historical POMV calculation is simply the market value of the Fund at year end or $MV_{t}$, less the \$400 million or so in principle from a settlement with Amerada Hess (or $AH_{t}$) to get $POMV_{t}$. I follow the statute's description of the new policy by taking the five-year average of the current and prior four years' annual $POMV_{t}$, of which 5.25\% becomes the POMV Pool for year $t$.
@@ -63,7 +64,9 @@ Given the limitations of my data, I assume that the new POMV policy went into ef
 This reduction has a significant effect on the simulated value of the Permanent Fund. Beginning the simulated period prior to the steep market declines of 2008 and 2009 shows that the larger appropriations for POMV pools would have prolonged the Fund's recovery from investment losses, an effect that compounds over time even when I apply the same investment returns in percentage terms. \autoref{fig:fundbal} shows the difference between the Fund's growth paths under the historical policy as well as the simulated effects of the POMV assuming a 2016 beginning. 
 
 The final step is to divide $POMV_{t}$ into its component pieces, the POMV-based divided and the remainder that goes to the state budget. 
+
 $$ POMV_{t} = d_{POMV, t} + b_{POMV, t} $$
+
 There is no set figure for the share between these two components, which leads me to model two possible historical trajectories for the Dividend based on the backward projection of the two primary policies. In the first, I assume that the new, discretionary model is in force along with the POMV approach. To model this, I take the average from the three years during which the method was in use for the Dividend share $d_{POMV, t}$, which is 30.26\% of each year's POMV pool. I treat the remainder as General Fund Revenue, and apply it to the state's primary rainy day fund, the Constitutional Budget Reserve Fund, since it represents additional income beyond what the state already gathered. I call this the ``stock" version of the POMV-based Dividend when reporting results given its basis in calculations based on the stock of assets in the Fund. 
 
 The second approach combines POMV allocations with the older Dividend payout formula based on investment earnings, but in the context of steady reductions in the overall APF balance (and thus the invested principal) from the POMV reductions. This produces a Dividend with much of the variation of the historical Dividend, though with amounts that tend to fall somewhere between the historical figure and the simulated Dividend described above. I call this the ``flow" version of the POMV-based Dividend given its basis in investment flows. As with the other method, I treat any remaining funds from the POMV appropriation after paying the Dividend as going into the CBR and thus available for rain-day spending. 
