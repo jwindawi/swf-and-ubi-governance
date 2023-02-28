@@ -4,6 +4,10 @@
  
 The process I follow begins by constructing some number of counterfactual population incomes for the state of Alaska in which the Dividend does not exist, holding the population and its demographic characteristics constant, and then measures the differences between these counterfactual Alaskas and the baseline version established by the ACS IPUMS data for each year. 
 
+The following graphic provides an overview of the three stages. 
+
+<img src=https://github.com/jwindawi/swf-and-ubi-governance/blob/master/process.png width="100" />
+
 ## Simulation Data 
 
 The inability to consistently identify APFD income in the public data, coupled with the fact that receipt of the Dividend is not universal, creates measurement problems akin to those faced by studies of the Earned Income Tax Credit, which typically rely on data from the CPS (CITE HOYNES, NICHOLS). The CPS' approach to measuring the EITC is part of its larger effort to reliably estimate after-tax income in the absence of confidential IRS data. The methods used by the CPS in were significantly revised in 2004 to encompass a two-stage process that begins with an estimation of the likelihood of a taxpaying unit claiming certain deductions based on eligibility and matched IRS data, followed by an simulation-based imputation of deductions based on the likelihood established in the first-stage estimation. The final step is the deduction of the resulting taxes to arrive at an after-tax income, from which EITC eligibility and assignment are determined (O'Hara 2004, 2006). 
