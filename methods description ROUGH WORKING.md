@@ -31,7 +31,7 @@ I first eliminate from my data set the very small number of sampled individuals 
 
 The next step in the data construction process is to establish $p_{t}$, or the percentage of Dividend-eligible individuals in each year to simulate in order to capture the appropriate number of recipients (and thus the appropriate dollar amount moving through Alaska's economy). The table below outlines the process I use to establish these percentages, which appear in the second to last columns of both halves of the table. The top half of the table uses official data from various state sources in Alaska, while the bottom half shows the analogous figures I generate in the ACS data using the process I describe above.  
 
-<img src="[https://user-images.githubusercontent.com/link-to-your-image.png](https://github.com/jwindawi/swf-and-ubi-governance/blob/master/construction.png)" width="50" />
+<img src="https://github.com/jwindawi/swf-and-ubi-governance/blob/master/construction.png" width="50" />
 
 I use the Department of Health and Human Services poverty guideline for Alaska rather than the more traditional Census threshold. While the latter is designed to capture national poverty rates, the HHS guidelines take into account the higher cost of living in Alaska.
 
